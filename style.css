@@ -107,7 +107,8 @@ main { padding: 0 var(--pad); max-width: 1560px; margin: 0 auto; }
 }
 .arch img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
 .arch:hover img { transform: scale(1.04); }
-main { position: relative; z-index: 0; }
+main { position: relative; z-index: 0; overflow-x: clip; }
+@supports not (overflow-x: clip) { main { overflow-x: hidden; } }
 
 /* ---------- chapters ---------- */
 .chapter { padding-top: clamp(70px, 9vw, 130px); }
