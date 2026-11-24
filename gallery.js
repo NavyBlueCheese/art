@@ -35,6 +35,13 @@
     e.preventDefault(); show(i); box.showModal();
   }));
 
+  // the small picture on the cover opens the matching gallery piece
+  document.querySelectorAll('[data-open]').forEach(a => a.addEventListener('click', (e) => {
+    const i = tiles.findIndex(t => t.dataset.i === a.dataset.open);
+    if (i < 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault(); show(i); box.showModal();
+  }));
+
   box.querySelector('.lb-close').onclick = () => box.close();
   box.querySelector('.lb-prev').onclick = () => show(cur - 1);
   box.querySelector('.lb-next').onclick = () => show(cur + 1);
