@@ -1,5 +1,18 @@
 // Lightbox: click a tile to open it large; arrows / swipe to move, Esc to close.
 (() => {
+  document.documentElement.classList.add('js');
+
+  // header hairline after scrolling
+  const top = document.querySelector('.top');
+  const onScroll = () => top.classList.toggle('scrolled', window.scrollY > 10);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // fade tiles in as they reach the viewport
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px' }) : null;
+  document.querySelectorAll('.gallery .tile').forEach(t => io ? io.observe(t) : t.classList.add('in'));
+
   const tiles = [...document.querySelectorAll('a.tile')].sort((a, b) => a.dataset.i - b.dataset.i);
   const box = document.querySelector('.lightbox');
   if (!box || !box.showModal) return;              // very old browser: links just open the image
