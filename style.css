@@ -130,7 +130,7 @@ main { position: relative; z-index: 0; overflow-x: clip; }
   margin-top: clamp(90px, 12vw, 170px); padding: 56px var(--pad) 48px;
   border-top: 1px solid var(--rule); text-align: center; color: var(--muted);
 }
-.foot-mark { margin: 0 auto 18px; }
+.foot-mark { margin: 0 auto 22px; }
 .foot-line { margin: 0 0 22px; font: italic 400 clamp(1.4rem, 3vw, 2rem)/1.2 var(--display); color: var(--ink); }
 .foot-small { margin: 4px 0; font-size: .8rem; }
 .foot-small a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
